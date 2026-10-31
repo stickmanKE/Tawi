@@ -1,0 +1,48 @@
+/* core.css — shared by every theme. Mechanics only; themes supply the look.
+   Tokens themes should set: --bg --surface --ink --muted --accent --hl --slip --font-body --font-head */
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html:not(.ready) body{visibility:hidden}
+body{margin:0}
+.stamp,.bar,.deco-top{display:none} /* decorative hooks: a theme turns on what it wants */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--accent,#c00);outline-offset:2px}
+
+/* staggered "print in" animation */
+.line{opacity:0;transform:translateY(6px);animation:print .45s steps(4) forwards;animation-delay:calc(var(--i)*60ms)}
+@keyframes print{to{opacity:1;transform:none}}
+
+/* tear-off contact strip (features.tear) */
+.tear{all:unset;box-sizing:border-box;display:block;width:100%;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none;padding:6px 0}
+.tear:active{cursor:grabbing}
+.tear .perf{display:block;border-top:3px dotted var(--muted,#888);margin:0 8px}
+.tear .tl{display:flex;justify-content:center;align-items:center;gap:8px;min-height:44px;padding:0 14px;font-weight:600;font-size:12px;letter-spacing:.14em;text-align:center;color:var(--ink,inherit)}
+.tear .tl i{font-style:normal;font-size:18px;color:var(--accent,#c00);display:inline-block;animation:snip 1.6s ease-in-out infinite}
+.tear .tl em{font-style:normal;color:var(--muted,#888);font-weight:500;letter-spacing:.04em}
+@keyframes snip{0%,60%,100%{transform:rotate(0)}70%{transform:rotate(-18deg)}80%{transform:rotate(8deg)}90%{transform:rotate(-12deg)}}
+.tear.back{transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.tear.gone{pointer-events:none;animation:fall .75s cubic-bezier(.5,0,.9,.5) forwards}
+@keyframes fall{to{transform:translate(calc(var(--dx,1)*120%),160px) rotate(calc(var(--dx,1)*22deg));opacity:0}}
+.slipwrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s ease .15s}
+.slipwrap.open{grid-template-rows:1fr}
+.slipwrap>div{overflow:hidden;min-height:0}
+
+/* contact form: neutral defaults, driven by tokens */
+.slip{margin:0;padding:22px 20px 26px;background:var(--slip,transparent);color:var(--ink,inherit);border-top:2px dotted var(--muted,#888)}
+.slip h2{font-family:var(--font-head,inherit);font-size:24px;margin:0 0 2px;line-height:1.1}
+.slip p{margin:0 0 12px;font-size:12px;color:var(--muted,#888)}
+.slip label{display:block;font-size:11px;font-weight:600;letter-spacing:.1em;margin:10px 0 4px}
+.slip input,.slip textarea{width:100%;font:inherit;font-size:16px;color:inherit;background:transparent;border:0;border-bottom:2px dashed var(--ink,#111);border-radius:0;padding:8px 2px;min-height:44px;resize:vertical}
+.slip input:focus,.slip textarea:focus{outline:0;background:var(--hl,transparent);border-bottom-style:solid}
+.slip .btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.slip .btns>*{min-height:46px;display:flex;align-items:center;justify-content:center;text-align:center;font:inherit;font-weight:600;font-size:13px;text-decoration:none;color:var(--surface,#fff);background:var(--ink,#111);border:0;border-radius:2px;cursor:pointer;padding:0 8px}
+.slip .stub{margin-top:14px;text-align:center;font-size:11px;color:var(--muted,#888);letter-spacing:.08em}
+
+@media (prefers-reduced-motion:reduce){
+  .line{animation:none;opacity:1;transform:none}
+  .tear .tl i{animation:none}.tear.gone{animation:none;display:none}.slipwrap{transition:none}
+}
+
+/* optional theme picker (features.picker) */
+.picker{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+.picker a{display:flex;align-items:center;min-height:36px;padding:0 14px;border:1px solid currentColor;border-radius:99px;color:var(--muted,#888);text-decoration:none;font:500 12px var(--font-body,inherit);opacity:.75}
+.picker a[aria-current]{opacity:1;color:var(--ink,inherit);background:var(--hl,transparent)}

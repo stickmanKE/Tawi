@@ -1,0 +1,62 @@
+/* THEME: library — Ex Libris register: parchment, small caps, roman numerals, ruled boxes. */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+:root{
+  --bg:#f1e8d6; --surface:#f1e8d6; --ink:#2a2118; --muted:#7d6b55; --accent:#7a4a1e; --hl:#e6d8b8; --slip:#e9dcbd; --red:#a8372c;
+  --serif:"Cormorant Garamond",Garamond,Georgia,serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --font-body:var(--mono); --font-head:var(--serif);
+  color-scheme:light; padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0);
+}
+body{background:var(--bg) radial-gradient(rgba(125,95,55,.16) 1px,transparent 1px) 0 0/14px 14px;color:var(--ink);font:13.5px/1.7 var(--mono)}
+main{max-width:640px;margin:0 auto;padding:48px 18px 80px}
+.card{background:none}
+
+/* masthead */
+.top{text-align:center}
+.top::before{content:"Ex Libris";display:block;font:italic 18px var(--serif);color:var(--muted)}
+.logo{font:500 clamp(42px,11vw,68px)/1.05 var(--serif);font-variant:small-caps;letter-spacing:.01em;margin:4px 0 0}
+.logo span{border-bottom:3px solid var(--accent)}
+.sub{margin:6px 0 0;font:italic 18px var(--serif);color:var(--muted)}
+.sub::before{content:"— "}.sub::after{content:" —"}
+.meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:18px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.meta2{margin-top:0}
+.rule{border:0;border-top:1px solid var(--ink);margin:18px 0}
+.intro{margin:0}
+.intro:first-of-type::first-letter{font:600 2.6em/.7 var(--serif);color:var(--accent);padding-right:.04em}
+
+/* links: numbered entries (counter gives I. II. III.), colour tag from config */
+.card{counter-reset:entry}
+.item{display:block;counter-increment:entry;color:inherit;text-decoration:none;padding:14px 4px;border-bottom:1px solid rgba(42,33,24,.25);min-height:48px;transition:background .15s}
+.item .row{display:flex;align-items:baseline;gap:10px}
+.item .n{display:none}
+.item .name{font:600 24px/1.15 var(--serif)}
+.item .name::before{content:counter(entry,upper-roman) ".";display:inline-block;min-width:3.2em;font:400 12px var(--mono);color:var(--muted)}
+.item .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px)}
+.item .tag{font-size:10px;letter-spacing:.14em;color:#fff;background:var(--c,var(--accent));padding:1px 8px;box-shadow:2px 2px 0 var(--ink)}
+.item .d{display:block;margin:2px 0 0 3.2em;font:italic 17px/1.35 var(--serif);color:var(--muted)}
+.item .go{display:block;margin:4px 0 0 4em;font-size:10px;letter-spacing:.14em;color:var(--accent)}
+.item:focus-visible,.item:active{background:var(--hl);outline:0}
+@media (hover:hover){.item:hover{background:var(--hl)}}
+
+/* ledger + notice */
+.stats::before{content:"§ Ledger — figures of the day";display:block;margin-bottom:6px;font:italic 20px var(--serif);color:var(--ink)}
+.sum{display:flex;justify-content:space-between;border-bottom:1px solid rgba(42,33,24,.2);padding:3px 0}
+.sum span:last-child{font-weight:600}
+.total{position:relative;display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:26px 4px 10px;padding:18px 16px 14px;border:1px solid var(--red);outline:1px solid var(--red);outline-offset:3px;background:rgba(168,55,44,.06)}
+.total::before{content:"Notice";position:absolute;top:-13px;left:14px;padding:0 8px;background:var(--bg);font:italic 17px var(--serif);color:var(--red)}
+.total span:first-child{font-size:11px;letter-spacing:.14em}
+.total span:last-child{font:italic 600 26px/1.1 var(--serif);color:var(--red)}
+
+/* connect + sign-off */
+.pay{display:flex;gap:12px;margin-top:12px}
+.pay a{flex:1;min-height:46px;display:flex;align-items:center;justify-content:center;color:var(--ink);text-decoration:none;font-weight:600;background:var(--hl);border:1px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+.pay a:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+@media (hover:hover){.pay a:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}}
+.thanks{margin:26px 0 0;text-align:center;font:italic 17px var(--serif);color:var(--muted)}
+.thanks::before{content:"✦ · ✦ · ✦";display:block;color:var(--accent);font:14px var(--mono);letter-spacing:.3em;margin-bottom:6px}
+.thanks b{display:block;font:600 24px var(--serif);font-style:normal;color:var(--ink)}
+.tearwrap{margin:24px 0 0}
+.slip{border:1px solid var(--ink);margin-top:8px;box-shadow:4px 4px 0 var(--ink)}
+.slip h2{font:600 28px var(--serif)}
+.tear .perf{border-top:2px dashed var(--muted)}
+.foot{text-align:center;margin-top:34px;font-size:11px;letter-spacing:.08em;color:var(--muted)}
+@media (min-width:900px){main{max-width:700px;padding-top:80px}}

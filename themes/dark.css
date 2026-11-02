@@ -1,0 +1,58 @@
+/* THEME: dark — warm near-black, serif headlines, mono labels, rounded cards. */
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+:root{
+  --bg:#131110; --surface:#1d1a18; --ink:#f3eee5; --muted:#8f897e; --accent:#ff6b57; --hl:#2a2623; --slip:#1d1a18; --line:#2e2a26;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif; --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --font-body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif; --font-head:var(--serif);
+  color-scheme:dark; padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0);
+}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--font-body)}
+main{max-width:640px;margin:0 auto;padding:56px 18px 80px}
+.card{background:none}
+
+/* header */
+.logo{font:500 clamp(44px,12vw,72px)/1 var(--serif);letter-spacing:-.02em;margin:0}
+.logo::before{content:"";display:inline-block;width:.2em;height:.2em;border-radius:50%;background:var(--ink);margin-right:.22em;vertical-align:.18em}
+.logo span{color:var(--accent)}
+.sub{display:inline-block;margin:14px 0 0;padding:6px 14px;border:1px solid var(--line);border-radius:99px;font:12px var(--mono);color:var(--muted)}
+.meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:18px 0 0;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.meta2{margin-top:4px}
+.rule{border:0;border-top:1px solid var(--line);margin:22px 0}
+.intro{margin:0;color:var(--muted);font-size:16px}
+
+/* links: one card each, colour from config (--c) */
+.item{display:block;position:relative;color:inherit;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--c,var(--accent));border-radius:14px;padding:16px 18px;margin:12px 0;min-height:48px;transition:transform .15s,border-color .15s}
+.item .row{display:flex;align-items:center;gap:10px}
+.item .n,.item .dots{display:none}
+.item .name{font:500 24px/1.15 var(--serif);flex:1}
+.item .tag{font:500 11px var(--mono);letter-spacing:.1em;color:var(--c,var(--accent));padding:3px 9px;border-radius:6px;background:color-mix(in srgb,var(--c,var(--accent)) 14%,transparent)}
+.item .d{display:block;margin-top:6px;font-size:14px;color:var(--muted)}
+.item .go{display:block;margin-top:10px;font:11px var(--mono);letter-spacing:.12em;color:var(--muted)}
+.item:focus-visible,.item:active{border-color:var(--c,var(--accent));outline:0}
+@media (hover:hover){.item:hover{transform:translateY(-2px);border-color:var(--c,var(--accent))}.item:hover .go{color:var(--c,var(--accent))}}
+
+/* stats as cards, total as the warning callout */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.sum{display:flex;flex-direction:column;gap:2px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px}
+.sum span:first-child{font:10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.sum span:last-child{font:500 34px/1.1 var(--serif)}
+.total{display:flex;flex-direction:column;gap:4px;margin:12px 0 0;padding:18px;border:1px solid color-mix(in srgb,var(--accent) 55%,transparent);border-radius:14px;background:color-mix(in srgb,var(--accent) 8%,var(--bg))}
+.total span:first-child{font:11px var(--mono);letter-spacing:.14em;color:var(--accent)}
+.total span:last-child{font:500 26px/1.2 var(--serif);color:var(--accent)}
+
+/* connect + footer */
+.pay{display:flex;gap:10px;margin-top:14px}
+.pay a{flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;border:1px solid var(--ink);border-radius:99px;color:var(--ink);text-decoration:none;font-weight:500}
+@media (hover:hover){.pay a:hover{background:var(--ink);color:var(--bg)}}
+.thanks{margin:26px 0 0;text-align:center;color:var(--muted);font-size:13px}
+.thanks b{display:block;font:500 22px var(--serif);color:var(--ink)}
+.tearwrap{margin:24px 0 0}
+.slip{border:1px solid var(--line);border-radius:14px;margin-top:8px}
+.slip h2{font-weight:500}
+.slip .btns>*{border-radius:99px;background:var(--ink);color:var(--bg)}
+.tear .perf{border-top:2px dashed var(--line)}
+.foot{text-align:center;margin-top:34px;font:11px var(--mono);color:var(--muted)}
+@media (max-width:480px){.stats{grid-template-columns:1fr 1fr}.stats .sum:last-child{grid-column:1/-1}}
+@media (min-width:900px){main{padding-top:88px}}
+.avatar{margin:0 0 20px;border:1px solid var(--line)}
+.thumb{--img-radius:10px;border:1px solid var(--line)}

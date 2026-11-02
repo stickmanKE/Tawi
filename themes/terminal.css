@@ -1,0 +1,42 @@
+/* THEME: terminal — teal on black, hacker cockpit. Small on purpose: copy it as a starting point. */
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&display=swap");
+:root{
+  --bg:#04100d; --surface:#04100d; --ink:#7dffd8; --muted:#3f8f7a; --accent:#ffd24a; --hl:rgba(125,255,216,.14); --slip:rgba(125,255,216,.05);
+  --font-body:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace; --font-head:var(--font-body);
+  padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0);
+}
+body{background:var(--bg);color:var(--ink);font:14px/1.6 var(--font-body)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px)}
+main{max-width:640px;margin:0 auto;padding:40px 16px 80px}
+.card{border:1px solid var(--muted);padding:22px 20px;background:var(--slip)}
+.logo{font-size:30px;font-weight:800;margin:0;line-height:1.1}
+.logo::before{content:"> "}.logo::after{content:"_";animation:blink 1s steps(1) infinite}
+.logo span{color:var(--accent)}
+@keyframes blink{50%{opacity:0}}
+.sub,.intro,.meta{color:var(--muted);margin:4px 0}
+.meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:12px}
+.rule{border:0;border-top:1px dashed var(--muted);margin:16px 0}
+.item{display:block;color:inherit;text-decoration:none;padding:12px 8px;margin:0 -8px;min-height:48px}
+.item .row{display:flex;gap:8px;align-items:baseline}
+.item .n::after{content:"."}.item .n{color:var(--muted)}
+.item .name{font-weight:600;font-size:16px}
+.item .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px)}
+.item .tag{color:var(--accent);font-size:12px}.item .tag::before{content:"["}.item .tag::after{content:"]"}
+.item .d{display:block;margin:2px 0 0 26px;color:var(--muted);font-size:12px}
+.item .go{display:block;margin:2px 0 0 26px;font-size:11px;letter-spacing:.1em}
+.item:focus-visible,.item:active{background:var(--ink);color:var(--bg);outline:0}
+.item:focus-visible *,.item:active *{color:var(--bg);border-color:var(--bg)}
+@media (hover:hover){.item:hover{background:var(--ink);color:var(--bg)}.item:hover *{color:var(--bg);border-color:var(--bg)}}
+.sum,.total{display:flex;justify-content:space-between}
+.total{font-weight:800;font-size:18px;margin-top:6px}
+.pay{display:flex;gap:10px;margin-top:8px}
+.pay a{flex:1;min-height:46px;display:flex;align-items:center;justify-content:center;color:var(--ink);text-decoration:none;border:1px solid var(--ink);font-weight:600}
+@media (hover:hover){.pay a:hover{background:var(--ink);color:var(--bg)}}
+.thanks{margin:18px 0 0;color:var(--muted);text-align:center;font-size:12px}.thanks b{display:block;color:var(--ink);font-size:15px}
+.tearwrap{margin:22px -20px -22px}
+.slip{padding:22px 20px;border-top:1px dashed var(--muted)}
+.slip .btns>*{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.foot{text-align:center;margin-top:28px;font-size:11px;color:var(--muted)}
+@media (min-width:900px){main{padding-top:80px}.logo{font-size:38px}}
+.avatar{margin:0 0 16px;border-radius:0;border:1px solid var(--ink);filter:grayscale(1) sepia(1) hue-rotate(105deg) saturate(2.4)}
+.thumb{width:calc(100% - 26px);margin-left:26px;border-radius:0;border:1px solid var(--muted);filter:grayscale(1) sepia(1) hue-rotate(105deg) saturate(2)}

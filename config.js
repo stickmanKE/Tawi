@@ -10,7 +10,7 @@ window.LINKTREE = {
 
   profile: {
     name: "Bunifulab",
-    highlight: "Buniful",               // optional: part of the name to highlight
+    highlight: "Bunifu",               
     owner: "Mark Mgharo",
     avatar: "assets/avatar.svg",         // optional profile picture (square works best). "" = none
     tagline: "Independent builder · Mombasa, KE",
@@ -18,7 +18,7 @@ window.LINKTREE = {
   },
 
   /* optional small text rows (themes may style or hide them) */
-  meta: { ref: "RCPT", lines: ["Cashier: Mark Mgharo", "Till 01"] },
+  meta: { ref: "RCPT", lines: ["Cashier: Mark Mgharo", "Till 001"] },
 
   links: [
     { title: "Mauzo", color: "#d65a52", tag: "LIVE", cta: "OPEN APP →",
@@ -42,7 +42,6 @@ window.LINKTREE = {
       url: "https://github.com/stickmanKE" }
   ],
 
-  /* small stat rows + a headline total (optional) */
   summary: [
     { label: "Items shipped", value: "6" },
     { label: "Bugs (claimed)", value: "0" },

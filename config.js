@@ -6,21 +6,23 @@
    ============================================================ */
 window.LINKTREE = {
   theme: "receipt",   // receipt · terminal · dark · library · starter
-  themes: ["receipt", "terminal", "dark", "library", "starter"],   
+  themes: ["receipt", "terminal", "dark", "library", "starter"],   // used by the optional picker
 
   profile: {
     name: "Bunifulab",
-    highlight: "Bunifu",               
+    highlight: "Buniful",               // optional: part of the name to highlight
     owner: "Mark Mgharo",
+    avatar: "assets/avatar.svg",         // optional profile picture (square works best). "" = none
     tagline: "Independent builder · Mombasa, KE",
     intro: "I turn practical problems into useful software. Here’s what’s on your tab:"
   },
 
-  
+  /* optional small text rows (themes may style or hide them) */
   meta: { ref: "RCPT", lines: ["Cashier: Mark Mgharo", "Till 01"] },
 
   links: [
     { title: "Mauzo", color: "#d65a52", tag: "LIVE", cta: "OPEN APP →",
+      // image: "assets/mauzo.png",      // optional project picture (16:9 works best)
       desc: "Sales and stock for everyday retail. One place for sales, inventory and workflows.",
       url: "https://bunifulab.pythonanywhere.com/accounts/login/" },
     { title: "UremboPro", color: "#5b8def", tag: "DEMO", cta: "OPEN DEMO →",
@@ -40,7 +42,7 @@ window.LINKTREE = {
       url: "https://github.com/stickmanKE" }
   ],
 
-  
+  /* small stat rows + a headline total (optional) */
   summary: [
     { label: "Items shipped", value: "6" },
     { label: "Bugs (claimed)", value: "0" },
@@ -56,7 +58,7 @@ window.LINKTREE = {
     ]
   },
 
-  
+  /* contact form: WhatsApp number in international format, no "+" */
   contact: {
     recipient: "Mark",
     whatsapp: "254715197114",
@@ -68,11 +70,11 @@ window.LINKTREE = {
   },
 
   thanks: { title: "Asante, karibu tena.", text: "Keep this receipt. No refunds, only updates." },
-  stamp: { top: "MOMBASA", main: "PAID", bottom: "KENYA" },   
+  stamp: { top: "MOMBASA", main: "PAID", bottom: "KENYA" },   // themes decide whether to show it
   footer: "© 2026 Mark Mgharo / Bunifulab · Made with intent in Mombasa",
 
   features: {
-    tear: true,    
-    picker: true    
+    tear: true,     // false = contact form is simply open, no tear strip
+    picker: true    // shows a theme switcher at the bottom: great for demos, turn off on your real page
   }
 };

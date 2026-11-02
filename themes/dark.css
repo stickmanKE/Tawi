@@ -54,3 +54,5 @@ main{max-width:640px;margin:0 auto;padding:56px 18px 80px}
 .foot{text-align:center;margin-top:34px;font:11px var(--mono);color:var(--muted)}
 @media (max-width:480px){.stats{grid-template-columns:1fr 1fr}.stats .sum:last-child{grid-column:1/-1}}
 @media (min-width:900px){main{padding-top:88px}}
+.avatar{margin:0 0 20px;border:1px solid var(--line)}
+.thumb{--img-radius:10px;border:1px solid var(--line)}

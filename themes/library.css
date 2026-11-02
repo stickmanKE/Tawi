@@ -60,3 +60,5 @@ main{max-width:640px;margin:0 auto;padding:48px 18px 80px}
 .tear .perf{border-top:2px dashed var(--muted)}
 .foot{text-align:center;margin-top:34px;font-size:11px;letter-spacing:.08em;color:var(--muted)}
 @media (min-width:900px){main{max-width:700px;padding-top:80px}}
+.avatar{border-radius:0;padding:5px;background:var(--bg);border:1px solid var(--ink);outline:1px solid var(--ink);outline-offset:3px;filter:sepia(.55) contrast(1.05)}
+.thumb{--img-radius:0;width:calc(100% - 3.2em);margin-left:3.2em;padding:4px;background:var(--bg);border:1px solid var(--ink);filter:sepia(.45)}

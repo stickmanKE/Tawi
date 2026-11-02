@@ -38,3 +38,5 @@ main{max-width:640px;margin:0 auto;padding:40px 16px 80px}
 .slip .btns>*{background:transparent;color:var(--ink);border:1px solid var(--ink)}
 .foot{text-align:center;margin-top:28px;font-size:11px;color:var(--muted)}
 @media (min-width:900px){main{padding-top:80px}.logo{font-size:38px}}
+.avatar{margin:0 0 16px;border-radius:0;border:1px solid var(--ink);filter:grayscale(1) sepia(1) hue-rotate(105deg) saturate(2.4)}
+.thumb{width:calc(100% - 26px);margin-left:26px;border-radius:0;border:1px solid var(--muted);filter:grayscale(1) sepia(1) hue-rotate(105deg) saturate(2)}

@@ -46,3 +46,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .picker{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
 .picker a{display:flex;align-items:center;min-height:36px;padding:0 14px;border:1px solid currentColor;border-radius:99px;color:var(--muted,#888);text-decoration:none;font:500 12px var(--font-body,inherit);opacity:.75}
 .picker a[aria-current]{opacity:1;color:var(--ink,inherit);background:var(--hl,transparent)}
+
+/* optional pictures: profile.avatar and links[].image */
+.avatar{display:block;width:92px;height:92px;margin:0 auto 14px;border-radius:50%;object-fit:cover;background:var(--hl,#ddd)}
+.thumb{display:block;width:100%;aspect-ratio:16/9;max-height:210px;object-fit:cover;margin:10px 0 2px;border-radius:var(--img-radius,6px);background:var(--hl,#ddd)}

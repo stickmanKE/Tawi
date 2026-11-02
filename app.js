@@ -20,6 +20,13 @@
     return e;
   }
   function L(e) { e.classList.add("line"); e.style.setProperty("--i", n++); return e; }
+  /* optional picture: returns null when no path is given; drops itself if the file can't load */
+  function pic(src, cls, alt) {
+    if (!src) return null;
+    var i = h("img", { "class": cls, src: src, alt: alt || "", loading: "lazy", decoding: "async" });
+    i.addEventListener("error", function () { i.remove(); });
+    return i;
+  }
   function ext(href) { return /^https?:/.test(href) ? { target: "_blank", rel: "noopener" } : {}; }
   var $ = function (id) { return document.getElementById(id); };
 
@@ -29,7 +36,7 @@
 
   var name = P.name || "", hl = P.highlight || "";
   var logo = h("h1", { "class": "logo" }, hl && name.indexOf(hl) === 0 ? [h("span", { text: hl }), name.slice(hl.length)] : [name]);
-  card.appendChild(L(h("header", { "class": "top" }, [logo, P.tagline && h("p", { "class": "sub", text: P.tagline })])));
+  card.appendChild(L(h("header", { "class": "top" }, [pic(P.avatar, "avatar", P.owner || P.name), logo, P.tagline && h("p", { "class": "sub", text: P.tagline })])));
 
   var M = C.meta || {}, ml = M.lines || [];
   var d = new Date(), p2 = function (x) { return String(x).padStart(2, "0"); };
@@ -47,6 +54,7 @@
       h("span", { "class": "row" }, [h("span", { "class": "n", text: p2(i + 1) }), h("span", { "class": "name", text: it.title }),
         h("span", { "class": "dots" }), it.tag && h("span", { "class": "tag", text: it.tag })]),
       it.desc && h("span", { "class": "d", text: it.desc }),
+      pic(it.image, "thumb", it.imageAlt || it.title + " preview"),
       it.cta && h("span", { "class": "go", text: it.cta })]);
     if (it.color) a.style.setProperty("--c", it.color);   /* themes read it as var(--c) */
     card.appendChild(L(a));
